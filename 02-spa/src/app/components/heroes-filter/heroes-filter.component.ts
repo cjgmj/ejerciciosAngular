@@ -20,4 +20,8 @@ export class HeroesFilterComponent implements OnInit {
     } );
   }
 
+  verHeroe(i: number) {
+    this.router.navigate( ['/heroe', i] );
+  }
+
 }
