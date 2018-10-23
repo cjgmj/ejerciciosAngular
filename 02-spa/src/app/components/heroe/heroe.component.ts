@@ -10,8 +10,8 @@ export class HeroeComponent implements OnInit {
 
   heroe: Heroe = null;
 
-  constructor( private _activatedRoute: ActivatedRoute, private _heroesService: HeroesService ) {
-    this._activatedRoute.params.subscribe( params => {
+  constructor( private activatedRoute: ActivatedRoute, private _heroesService: HeroesService ) {
+    this.activatedRoute.params.subscribe( params => {
       this.heroe = this._heroesService.getHeroe( params['id'] );
     } );
   }
