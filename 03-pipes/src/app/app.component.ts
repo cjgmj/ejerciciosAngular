@@ -14,4 +14,6 @@ export class AppComponent {
 
   num = 0.234;
 
+  val = 1234.5;
+
 }
