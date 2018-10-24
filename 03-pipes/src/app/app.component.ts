@@ -24,6 +24,10 @@ export class AppComponent {
       calle: 'Calle false',
       numero: '123'
     }
-  }
+  };
+
+  valorPromesa = new Promise( (resolve, reject) => {
+    setTimeout( () => resolve('Llegó la información'), 3500);
+  } );
 
 }
