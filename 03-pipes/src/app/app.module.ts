@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 registerLocaleData(localeEs);
 
 @NgModule({
  imports: [ BrowserModule ],
- declarations: [ AppComponent, CapitalizePipe ],
+ declarations: [ AppComponent, CapitalizePipe, DomseguroPipe ],
  providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
  bootstrap: [ AppComponent ]
 })
