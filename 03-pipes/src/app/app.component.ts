@@ -16,4 +16,14 @@ export class AppComponent {
 
   val = 1234.5;
 
+  heroe = {
+    nombre: 'Peter Parker',
+    clave: 'Spider-man',
+    edad: 20,
+    direccion: {
+      calle: 'Calle false',
+      numero: '123'
+    }
+  }
+
 }
