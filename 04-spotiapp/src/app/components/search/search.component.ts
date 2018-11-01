@@ -14,7 +14,7 @@ export class SearchComponent {
 
   buscar(textSearched: string) {
     this.spotify.getArtist(textSearched).subscribe( (data: any) => {
-      this.artists = data.artists.items;
+      this.artists = data;
     });
   }
 
