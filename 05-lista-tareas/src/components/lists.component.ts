@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController, ItemSliding } from 'ionic-angular';
 
 import { List } from "../models";
 import { AddItemPage } from "../pages/add-item/addItem.component";
@@ -12,7 +12,7 @@ import { TasklistService } from '../services/tasklist.service';
 export class ListsComponent {
     @Input() finished: boolean = false;
 
-    constructor( public tasklistService: TasklistService, private navCtrl: NavController ) {
+    constructor( public tasklistService: TasklistService, private navCtrl: NavController, private alertCtrl: AlertController ) {
 
     }
 
@@ -21,6 +21,34 @@ export class ListsComponent {
             titulo: list.title,
             lista: list
         })
+    }
+
+    updateList( list: List, slidingItem: ItemSliding ){
+        slidingItem.close();
+        
+        const alert = this.alertCtrl.create({
+            title: 'Editar nombre',
+            message: 'Editar el nombre de la lista',
+            inputs: [{
+                name: 'titulo',
+                placeholder: 'Nombre de la lista',
+                value: list.title
+            }],
+            buttons: [{
+                text: 'Cancelar'
+            }, {
+                text: 'Guardar',
+                handler: data => {
+                    if ( data.titulo.length === 0 ) {
+                        return;
+                    }
+                    list.title = data.titulo;
+                    this.tasklistService.saveStorage();
+                }
+            }]
+        });
+
+        alert.present();
     }
 
     deleteList( list: List ){

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavParams } from "ionic-angular";
+import { NavParams, AlertController, ItemSliding } from "ionic-angular";
 
 import { List, ListItem } from "../../models";
 import { TasklistService } from '../../services/tasklist.service';
@@ -13,7 +13,7 @@ export class AddItemPage {
     list: List;
     nameItem: string = '';
 
-    constructor( public tasklistService: TasklistService, private navParams: NavParams ) {
+    constructor( public tasklistService: TasklistService, private navParams: NavParams, private alertCtrl: AlertController ) {
         const titulo= this.navParams.get('titulo');
 
         if( this.navParams.get('lista') ){
@@ -38,7 +38,7 @@ export class AddItemPage {
         this.nameItem = '';
     }
 
-    updateItem( item: ListItem ) {
+    activeItem( item: ListItem ) {
         item.completed = !item.completed;
 
         const pending = this.list.items.filter( itemData => {
@@ -48,9 +48,40 @@ export class AddItemPage {
         if( pending === 0 ){
             this.list.finished = true;
             this.list.finishDate = new Date();
+        } else {
+            this.list.finished = false;
+            this.list.finishDate = null;
         }
         
         this.tasklistService.saveStorage();
+    }
+
+    updateItem( item: ListItem, slidingItem: ItemSliding ){
+        slidingItem.close();
+        
+        const alert = this.alertCtrl.create({
+            title: 'Editar nombre',
+            message: 'Editar el nombre del elemento',
+            inputs: [{
+                name: 'desc',
+                placeholder: 'Nombre del elemento',
+                value: item.desc
+            }],
+            buttons: [{
+                text: 'Cancelar'
+            }, {
+                text: 'Guardar',
+                handler: data => {
+                    if ( data.desc.length === 0 ) {
+                        return;
+                    }
+                    item.desc = data.desc;
+                    this.tasklistService.saveStorage();
+                }
+            }]
+        });
+
+        alert.present();
     }
 
     deleteItem( idx: number ){

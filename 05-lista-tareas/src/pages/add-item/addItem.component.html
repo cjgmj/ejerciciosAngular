@@ -20,12 +20,17 @@
     </ion-list>
 
     <ion-list>
-        <ion-item-sliding class="animated fadeInDown" *ngFor="let item of list.items; let i = index">
-            <button ion-item detail-none (click)="updateItem(item)">
+        <ion-item-sliding class="animated fadeInDown" *ngFor="let item of list.items; let i = index" #slidingItem>
+            <button ion-item detail-none (click)="activeItem(item)">
                 <ion-icon *ngIf="!item.completed" name="square-outline" item-start></ion-icon>
                 <ion-icon *ngIf="item.completed" name="checkbox-outline" item-start></ion-icon>
                 {{ item.desc }}
             </button>
+            <ion-item-options side="left">
+                <button ion-button icon-only color="purple" (click)="updateItem(item, slidingItem)">
+                    <ion-icon name="create"></ion-icon>
+                </button>
+            </ion-item-options>
             <ion-item-options side="right">
                 <button ion-button icon-only color="danger" (click)="deleteItem(i)">
                     <ion-icon name="close"></ion-icon>
