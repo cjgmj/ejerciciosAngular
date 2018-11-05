@@ -41,17 +41,7 @@ export class AddItemPage {
     activeItem( item: ListItem ) {
         item.completed = !item.completed;
 
-        const pending = this.list.items.filter( itemData => {
-            return !itemData.completed;
-        } ).length;
-
-        if( pending === 0 ){
-            this.list.finished = true;
-            this.list.finishDate = new Date();
-        } else {
-            this.list.finished = false;
-            this.list.finishDate = null;
-        }
+        this.isComplete();
         
         this.tasklistService.saveStorage();
     }
@@ -86,7 +76,23 @@ export class AddItemPage {
 
     deleteItem( idx: number ){
         this.list.items.splice(idx, 1);
+
+        this.isComplete();
         
         this.tasklistService.saveStorage();
+    }
+
+    isComplete(){
+        const pending = this.list.items.filter( itemData => {
+            return !itemData.completed;
+        } ).length;
+
+        if( pending === 0 ){
+            this.list.finished = true;
+            this.list.finishDate = new Date();
+        } else {
+            this.list.finished = false;
+            this.list.finishDate = null;
+        }
     }
 }
