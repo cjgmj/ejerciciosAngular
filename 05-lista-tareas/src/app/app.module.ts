@@ -13,6 +13,7 @@ import { FinishedPage } from '../pages/finished/finished.component';
 import { AddItemPage } from '../pages/add-item/addItem.component';
 
 import { TasklistService } from '../services/tasklist.service';
+import { FilterCompletedPipe } from '../pipes/filter-completed';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TasklistService } from '../services/tasklist.service';
     TabsPage,
     PendingPage,
     FinishedPage,
-    AddItemPage
+    AddItemPage,
+    FilterCompletedPipe
 
   ],
   imports: [

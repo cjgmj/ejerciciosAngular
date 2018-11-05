@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { TasklistService } from '../../services/tasklist.service';
 import { NavController, AlertController } from "ionic-angular";
+
 import { List } from "../../models";
 import { AddItemPage } from "../add-item/addItem.component";
 
@@ -34,7 +35,7 @@ export class PendingPage {
             }, {
                 text: 'Añadir',
                 handler: data => {
-                    if(data.titulo.length === 0){
+                    if ( data.titulo.length === 0 ) {
                         return;
                     }
                     this.navCtrl.push( AddItemPage, {

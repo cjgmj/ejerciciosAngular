@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NavParams } from "ionic-angular";
+
 import { List, ListItem } from "../../models";
 import { TasklistService } from '../../services/tasklist.service';
 
