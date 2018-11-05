@@ -31,4 +31,8 @@ export class AddListPage {
     updateItem( item: ListItem ) {
         item.completed = !item.completed;
     }
+
+    deleteItem( idx: number ){
+        this.list.items.splice(idx, 1);
+    }
 }
