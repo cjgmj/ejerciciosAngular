@@ -10,13 +10,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { PendingPage } from '../pages/pending/pending.component';
 import { FinishedPage } from '../pages/finished/finished.component';
+import { AddListPage } from '../pages/add-list/addList.component';
+
+import { TasklistService } from '../services/tasklist.service';
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     PendingPage,
-    FinishedPage
+    FinishedPage,
+    AddListPage
 
   ],
   imports: [
@@ -28,11 +32,13 @@ import { FinishedPage } from '../pages/finished/finished.component';
     MyApp,
     TabsPage,
     PendingPage,
-    FinishedPage
+    FinishedPage,
+    AddListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    TasklistService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
