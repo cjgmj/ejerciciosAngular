@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { PendingPage } from '../pages/pending/pending.component';
 import { FinishedPage } from '../pages/finished/finished.component';
-import { AddListPage } from '../pages/add-list/addList.component';
+import { AddItemPage } from '../pages/add-item/addItem.component';
 
 import { TasklistService } from '../services/tasklist.service';
 
@@ -20,7 +20,7 @@ import { TasklistService } from '../services/tasklist.service';
     TabsPage,
     PendingPage,
     FinishedPage,
-    AddListPage
+    AddItemPage
 
   ],
   imports: [
@@ -33,7 +33,7 @@ import { TasklistService } from '../services/tasklist.service';
     TabsPage,
     PendingPage,
     FinishedPage,
-    AddListPage
+    AddItemPage
   ],
   providers: [
     StatusBar,

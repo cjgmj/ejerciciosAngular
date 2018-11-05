@@ -15,6 +15,13 @@ export class TasklistService{
         this.saveStorage();
     }
 
+    deleteList( list: List ){
+        this.lists = this.lists.filter( listData => {
+            return listData.id !== list.id
+        });
+        this.saveStorage();
+    }
+
     saveStorage() {
         localStorage.setItem( 'data', JSON.stringify(this.lists) );
     }
