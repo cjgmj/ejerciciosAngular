@@ -7,11 +7,21 @@ export class TasklistService{
     lists: List[] = [];
 
     constructor() {
-        const list1 = new List('Lista 1');
-        const list2 = new List('Lista 2');
+        this.loadStorage();
+    }
 
-        this.lists.push(list1, list2);
+    addList( list: List ){
+        this.lists.push( list );
+        this.saveStorage();
+    }
 
-        console.log(this.lists);
+    saveStorage() {
+        localStorage.setItem( 'data', JSON.stringify(this.lists) );
+    }
+
+    loadStorage() {
+        if( localStorage.getItem( 'data' ) ){
+            this.lists = JSON.parse( localStorage.getItem( 'data' ) );
+        }
     }
 }

@@ -43,5 +43,4 @@ export class PendingPage {
 
         alert.present();
     }
-
 }

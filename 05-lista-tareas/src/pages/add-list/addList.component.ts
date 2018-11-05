@@ -16,6 +16,8 @@ export class AddListPage {
         const titulo= this.navParams.get('titulo');
 
         this.list = new List(titulo);
+        
+        this.tasklistService.addList( this.list );
     }
 
     addItem() {
