@@ -6,21 +6,24 @@
 
 <ion-content>
 
-    <ion-list-header>
-        Tareas por hacer
-    </ion-list-header>
-
     <ion-list>
         <ion-item>
             <ion-label floating>Nuevo Item</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="nameItem" type="text" (keyup.enter)="addItem()"></ion-input>
         </ion-item>
     </ion-list>
 
+    <ion-list *ngIf="list.items.length > 0">
+        <ion-list-header>
+            Tareas por hacer
+        </ion-list-header>
+    </ion-list>
+
     <ion-list>
-        <button ion-item detail-none>
-            <ion-icon name="square-outline" item-start></ion-icon>
-            Item 1
-        </button>
+        <button ion-item detail-none class="animated fadeInDown" *ngFor="let item of list.items" (click)="updateItem(item)">
+            <ion-icon *ngIf="!item.completed" name="square-outline" item-start></ion-icon>
+            <ion-icon *ngIf="item.completed" name="checkbox-outline" item-start></ion-icon>
+            {{ item.desc }}
+    </button>
     </ion-list>
 </ion-content>
