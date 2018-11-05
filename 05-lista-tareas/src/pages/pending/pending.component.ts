@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { TasklistService } from '../../services/tasklist.service';
-import { NavController, AlertController } from "ionic-angular";
+import { AlertController, NavController } from "ionic-angular";
 
-import { List } from "../../models";
+import { TasklistService } from '../../services/tasklist.service';
 import { AddItemPage } from "../add-item/addItem.component";
+
 
 @Component({
     selector: 'page-pending',
@@ -13,13 +13,6 @@ export class PendingPage {
 
     constructor( public tasklistService: TasklistService, private navCtrl: NavController, private alertCtrl: AlertController ) {
 
-    }
-
-    listSelected( list: List) {
-        this.navCtrl.push( AddItemPage, {
-            titulo: list.title,
-            lista: list
-        })
     }
 
     addList() {
@@ -46,9 +39,5 @@ export class PendingPage {
         });
 
         alert.present();
-    }
-
-    deleteList( list: List ){
-        this.tasklistService.deleteList( list );
     }
 }

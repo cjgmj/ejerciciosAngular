@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
-import { TasklistService } from '../../services/tasklist.service';
 import { NavController } from 'ionic-angular';
 
-import { List } from "../../models";
-import { AddItemPage } from "../add-item/addItem.component";
+import { TasklistService } from '../../services/tasklist.service';
+
 
 @Component({
     selector: 'page-finished',
@@ -12,16 +11,5 @@ import { AddItemPage } from "../add-item/addItem.component";
 export class FinishedPage {
     constructor( public tasklistService: TasklistService, private navCtrl: NavController ) {
 
-    }
-
-    listSelected( list: List){
-        this.navCtrl.push( AddItemPage, {
-            titulo: list.title,
-            lista: list
-        })
-    }
-
-    deleteList( list: List ){
-        this.tasklistService.deleteList( list );
     }
 }

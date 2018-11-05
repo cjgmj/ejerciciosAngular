@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PendingPage } from '../pages/pending/pending.component';
 import { FinishedPage } from '../pages/finished/finished.component';
 import { AddItemPage } from '../pages/add-item/addItem.component';
+import { ListsComponent } from '../components/lists.component';
 
 import { TasklistService } from '../services/tasklist.service';
 import { FilterCompletedPipe } from '../pipes/filter-completed';
@@ -22,6 +23,7 @@ import { FilterCompletedPipe } from '../pipes/filter-completed';
     PendingPage,
     FinishedPage,
     AddItemPage,
+    ListsComponent,
     FilterCompletedPipe
 
   ],
@@ -35,7 +37,8 @@ import { FilterCompletedPipe } from '../pipes/filter-completed';
     TabsPage,
     PendingPage,
     FinishedPage,
-    AddItemPage
+    AddItemPage,
+    ListsComponent
   ],
   providers: [
     StatusBar,
