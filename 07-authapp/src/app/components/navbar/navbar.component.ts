@@ -21,7 +21,7 @@ export class NavbarComponent {
   }
 
   isAuthenticated() {
-    this.auth.isAuthenticated();
+    return this.auth.isAuthenticated();
   }
 
 }
