@@ -43,6 +43,44 @@
     </div>
 
     <div class="form-group row">
+        <label class="col-2 col-form-label">Pais</label>
+        <div class="col-md-8">
+            <select name="pais" class="form-control" [(ngModel)]="usuario.pais">
+                <option value="">Seleccione un país</option>
+                <option [value]="pais.codigo" *ngFor="let pais of paises">{{ pais.nombre }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Sexo</label>
+        <div class="col-md-8">
+            <!-- <div class="custom-control custom-radio">
+                <input [(ngModel)]="usuario.sexo" value="Hombre" type="radio" name="sexo" class="custom-control-input">
+                <label class="custom-control-label">Hombre</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input [(ngModel)]="usuario.sexo" value="Mujer" type="radio" name="sexo" class="custom-control-input">
+                <label class="custom-control-label">Mujer</label>
+            </div> -->
+            <div class="custom-control custom-radio" *ngFor="let s of sexos">
+                <input [(ngModel)]="usuario.sexo" [value]="s" type="radio" name="sexo" class="custom-control-input" [id]="s">
+                <label class="custom-control-label" [for]="s">{{ s }}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 cool-form-label">Aceptar</label>
+        <div class="col-md-8">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="acepta" [(ngModel)]="usuario.acepta" name="acepta" required>
+                <label class="custom-control-label" for="acepta">Aceptar las condiciones</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label class="col-2 col-form-label">&nbsp;</label>
         <div class="input-group col-md-8">
             <button [disabled]="formulario.invalid" type="submit" class="btn btn-outline-primary">
