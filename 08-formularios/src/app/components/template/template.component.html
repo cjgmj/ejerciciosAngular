@@ -7,14 +7,20 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Nombre" name="nombre" [(ngModel)]="usuario.nombre" required>
+                <input class="form-control" type="text" placeholder="Nombre" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" #nombre="ngModel" required>
+                <div class="" *ngIf="nombre.errors?.required">
+                    Este campo es requerido
+                </div>
+                <div class="" *ngIf="nombre.errors?.minlength">
+                    Longitud mínima de {{ nombre.errors.minlength.requiredLength }} caracteres
+                </div>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Apellido</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Apellido" name="apellido" [(ngModel)]="usuario.apellido">
+                <input class="form-control" type="text" placeholder="Apellido" name="apellido" [(ngModel)]="usuario.apellido" required>
             </div>
         </div>
 
@@ -23,7 +29,7 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Correo</label>
         <div class="col-md-8">
-            <input class="form-control" type="email" placeholder="Correo electrónico" name="email" [(ngModel)]="usuario.email" required>
+            <input class="form-control" type="email" placeholder="Correo electrónico" name="email" [(ngModel)]="usuario.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
         </div>
     </div>
 
