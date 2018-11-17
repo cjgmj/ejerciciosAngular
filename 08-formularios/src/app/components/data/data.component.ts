@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-data',
@@ -16,6 +16,7 @@ export class DataComponent {
       apellido: 'Gómez'
     },
     email: 'ibai.gomaz@yopmail.com'
+    // gustos: ['Correr', 'Dormir', 'Comer']
   };
 
   constructor() {
@@ -24,21 +25,21 @@ export class DataComponent {
         'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
         'apellido': new FormControl('', Validators.required)
       }),
-      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')])
+      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      'gustos': new FormArray([
+        new FormControl('Correr', Validators.required)
+      ])
     });
 
-    this.formulario.setValue(this.usuario);
+    // this.formulario.setValue(this.usuario);
   }
 
   guardarCambios() {
-    // this.formulario.reset({
-    //   nombrecompleto: {
-    //     nombre: '',
-    //     apellido: ''
-    //   },
-    //   email: ''
-    // });
     this.formulario.reset();
+  }
+
+  agregarGusto() {
+    (<FormArray>this.formulario.controls['gustos']).push(new FormControl('', Validators.required));
   }
 
 }
