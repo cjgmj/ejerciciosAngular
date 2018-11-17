@@ -23,7 +23,7 @@ export class DataComponent {
     this.formulario = new FormGroup({
       'nombrecompleto': new FormGroup({
         'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
-        'apellido': new FormControl('', Validators.required)
+        'apellido': new FormControl('', [Validators.required, this.noGomez])
       }),
       'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'gustos': new FormArray([
@@ -35,7 +35,16 @@ export class DataComponent {
   }
 
   guardarCambios() {
-    this.formulario.reset();
+    // this.formulario.reset();
+  }
+
+  noGomez( control: FormControl ): { [s: string]: boolean } {
+    if ( control.value === 'gomez' ) {
+      return {
+        nogomez: true
+      };
+    }
+    return null;
   }
 
   agregarGusto() {
