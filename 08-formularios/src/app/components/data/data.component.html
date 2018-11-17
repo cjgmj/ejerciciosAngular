@@ -1,20 +1,26 @@
 <h4>Formularios <small>data</small></h4>
 <hr>
-<form [formGroup]="formulario" (ngSubmit)="guardarCambios()" novalidate>
+<form [formGroup]="formulario" (ngSubmit)="guardarCambios()">
 
     <div>
 
-        <div class="form-group row">
+        <div class="form-group row" [ngClass]="{ 'has-danger': formulario.get('nombre').invalid }">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Nombre">
+                <input class="form-control" [ngClass]="{ 'is-invalid': formulario.get('nombre').invalid }" type="text" placeholder="Nombre" formControlName="nombre">
+                <div class="invalid-feedback" *ngIf="formulario.controls['nombre'].errors?.required">
+                    El nombre es necesario
+                </div>
+                <div class="invalid-feedback" *ngIf="formulario.controls['nombre'].errors?.minlength">
+                    Longitud mínima de {{ formulario.controls['nombre'].errors.minlength.requiredLength }} caracteres
+                </div>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Apellido</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Apellido">
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
             </div>
         </div>
 
@@ -23,7 +29,7 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Correo</label>
         <div class="col-md-8">
-            <input class="form-control" type="email" placeholder="Correo electrónico">
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="email">
         </div>
     </div>
 
