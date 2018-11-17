@@ -40,6 +40,18 @@ export class DataComponent {
       this.noIgual.bind( this.formulario )
     ]);
 
+    // this.formulario.valueChanges.subscribe( datos => {
+    //   console.log(datos);
+    // });
+
+    this.formulario.controls['username'].valueChanges.subscribe( datos => {
+      console.log(datos);
+    });
+
+    this.formulario.controls['username'].statusChanges.subscribe( datos => {
+      console.log(datos);
+    });
+
     // this.formulario.setValue(this.usuario);
   }
 
