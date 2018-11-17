@@ -2,17 +2,17 @@
 <hr>
 <form [formGroup]="formulario" (ngSubmit)="guardarCambios()">
 
-    <div>
+    <div formGroupName="nombrecompleto">
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
-                <input class="form-control" [ngClass]="{ 'is-invalid': formulario.get('nombre').invalid }" type="text" placeholder="Nombre" formControlName="nombre">
-                <div class="invalid-feedback" *ngIf="formulario.controls['nombre'].errors?.required">
+                <input class="form-control" [ngClass]="{ 'is-invalid': formulario.controls['nombrecompleto'].controls['nombre'].invalid }" type="text" placeholder="Nombre" formControlName="nombre">
+                <div class="invalid-feedback" *ngIf="formulario.get('nombrecompleto.nombre').errors?.required">
                     El nombre es necesario
                 </div>
-                <div class="invalid-feedback" *ngIf="formulario.controls['nombre'].errors?.minlength">
-                    Longitud mínima de {{ formulario.controls['nombre'].errors.minlength.requiredLength }} caracteres
+                <div class="invalid-feedback" *ngIf="formulario.get('nombrecompleto.nombre').errors?.minlength">
+                    Longitud mínima de {{ formulario.get('nombrecompleto.nombre').errors.minlength.requiredLength }} caracteres
                 </div>
             </div>
         </div>
