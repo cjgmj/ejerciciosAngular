@@ -28,8 +28,15 @@ export class DataComponent {
       'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'gustos': new FormArray([
         new FormControl('Correr', Validators.required)
-      ])
+      ]),
+      'password1': new FormControl('', Validators.required),
+      'password2': new FormControl()
     });
+
+    this.formulario.controls['password2'].setValidators([
+      Validators.required,
+      this.noIgual.bind( this.formulario )
+    ]);
 
     // this.formulario.setValue(this.usuario);
   }
@@ -42,6 +49,15 @@ export class DataComponent {
     if ( control.value === 'gomez' ) {
       return {
         nogomez: true
+      };
+    }
+    return null;
+  }
+
+  noIgual( control: FormControl ): { [s: string]: boolean } {
+    if ( control.value !== this.controls['password1'].value ) {
+      return {
+        noigual: true
       };
     }
     return null;

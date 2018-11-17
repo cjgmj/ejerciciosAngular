@@ -34,6 +34,20 @@
     </div>
 
     <div class="form-group row">
+        <label class="col-2 col-form-label">Contraseña</label>
+        <div class="col-md-8">
+            <input class="form-control" type="password" placeholder="Contraseña" formControlName="password1">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repetir contraseña</label>
+        <div class="col-md-8">
+            <input class="form-control" type="password" placeholder="Repetir contraseña" formControlName="password2">
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label class="col-2 col-form-label">Gustos</label>
         <div class="col-md-8" formArrayName="gustos">
             <input type="text" class="form-control" [formControlName]="i" *ngFor="let gusto of formulario.controls['gustos'].controls; let i = index">
