@@ -4,7 +4,7 @@
 
     <div>
 
-        <div class="form-group row" [ngClass]="{ 'has-danger': (nombre.errors?.required || nombre.errors?.minlength) && nombre.touched }">
+        <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
                 <input class="form-control" [ngClass]="{ 'is-invalid': (nombre.errors?.required || nombre.errors?.minlength) && nombre.touched }" type="text" placeholder="Nombre" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" #nombre="ngModel" required>

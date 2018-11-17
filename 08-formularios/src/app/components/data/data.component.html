@@ -4,7 +4,7 @@
 
     <div>
 
-        <div class="form-group row" [ngClass]="{ 'has-danger': formulario.get('nombre').invalid }">
+        <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
                 <input class="form-control" [ngClass]="{ 'is-invalid': formulario.get('nombre').invalid }" type="text" placeholder="Nombre" formControlName="nombre">
