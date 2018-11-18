@@ -35,4 +35,15 @@ export class HeroesService {
       return res.json();
     } ));
   }
+
+  obtenerHeroe( key$: string ) {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    const url = `${this.fireUrl}/${key$}.json`;
+
+    return this.http.get( url, { headers: headers} ).pipe(map( res => {
+      return res.json();
+    } ));
+  }
 }
