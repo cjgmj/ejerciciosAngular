@@ -5,7 +5,7 @@
 
 <div class="row animated fadeIn">
     <div class="col-md-12 text-right">
-        <button [routerLink]="['/heroe', 'nuevo']" class="btn btn-outline-primary" type="button" name="button">Nuevo</button>
+        <button [routerLink]="['/heroe', 'nuevo']" class="btn btn-outline-primary" type="button" name="button"><i class="fas fa-plus"></i> Nuevo</button>
     </div>
 </div>
 <br>
@@ -27,7 +27,10 @@
                         <td>{{i+1}}</td>
                         <td>{{heroes[k].nombre}}</td>
                         <td>{{heroes[k].editora}}</td>
-                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-small btn-outline-warning mr-2" [routerLink]="['/heroe', k]"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="button" class="btn btn-small btn-outline-danger" (click)="eliminar(k)"><i class="fas fa-times"></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

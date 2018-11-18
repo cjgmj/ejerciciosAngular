@@ -2,8 +2,8 @@
     <h3 *ngIf="nuevo">Nuevo héroe</h3>
     <h3 *ngIf="!nuevo">{{ heroe.nombre }}</h3>
     <div class="text-right">
-        <button [routerLink]="['heroes']" class="btn btn-small btn-outline-danger">Volver</button>
-        <button (click)="agregarNuevo(formulario)" class="btn btn-small btn-outline-success">Nuevo héroe</button>
+        <button [routerLink]="['heroes']" class="btn btn-small btn-outline-danger"><i class="fas fa-chevron-left"></i> Volver</button>
+        <button (click)="agregarNuevo(formulario)" class="btn btn-small btn-outline-success"><i class="fas fa-plus"></i> Nuevo héroe</button>
     </div>
 </div>
 <hr>
