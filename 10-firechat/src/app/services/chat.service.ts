@@ -17,18 +17,21 @@ export class ChatService {
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe( user => {
-    console.log(user);
-    if (!user) {
-      return;
-    }
+      if (!user) {
+        return;
+      }
 
-    this.usuario.nombre = user.displayName;
-    this.usuario.uid = user.uid;
-  } );
+      this.usuario.nombre = user.displayName;
+      this.usuario.uid = user.uid;
+    } );
   }
 
   login(cuenta: string) {
+    if (cuenta === 'google') {
       this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    } else {
+      this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider());
+    }
   }
   logout() {
     this.afAuth.auth.signOut();
