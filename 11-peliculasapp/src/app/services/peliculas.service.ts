@@ -10,8 +10,6 @@ export class PeliculasService {
   private apikey = '';
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
-  // http://image.tmdb.org/t/p/w600
-
   constructor( private jsonp: Jsonp ) { }
 
   getPopulares() {
@@ -23,7 +21,7 @@ export class PeliculasService {
 
   getPopularesNinos() {
     const url = `${ this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${ this.apikey }&language=es-ES
-    &include_adult=false&callback=JSONP_CALLBACK`;
+    &certification_country=ES&certification.lte=7&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get( url ).pipe(map(res => res.json()));
   }
