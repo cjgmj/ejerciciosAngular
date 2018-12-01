@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   populares: any[];
   popularesNinos: any[];
 
-  constructor( public _ps: PeliculasService ) {
+  constructor( private _ps: PeliculasService ) {
     this._ps.getCartelera().subscribe(data => this.cartelera = data);
     this._ps.getPopulares().subscribe(data => this.populares = data);
     this._ps.getPopularesNinos().subscribe(data => this.popularesNinos = data);

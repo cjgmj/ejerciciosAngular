@@ -11,8 +11,8 @@ export class BuscarComponent implements OnInit {
 
   buscar = '';
 
-  constructor( public _ps: PeliculasService, public activateRoute: ActivatedRoute ) {
-    this.activateRoute.params.subscribe( params => {
+  constructor( public _ps: PeliculasService, private activatedRoute: ActivatedRoute ) {
+    this.activatedRoute.params.subscribe( params => {
       if (params['buscar']) {
         this.buscar = params['buscar'];
         this.buscarPelicula();
