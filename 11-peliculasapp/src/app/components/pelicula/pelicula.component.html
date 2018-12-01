@@ -1,16 +1,21 @@
 <div class="container main-container animated fadeIn fast" *ngIf="pelicula">
     <h1>{{ pelicula.title }}</h1>
+    <hr>
     <div class="row">
         <div class="col-md-5">
             <img class="img-thumbnail img-fluid" [src]="pelicula | peliculaImagen:true" [alt]="pelicula.title">
         </div>
         <div class="col-md-7">
-            <h3>Sinopsis</h3>
-            <hr>
-            <p class="text-justify">{{ pelicula.overview }}</p>
-            <h4>Extracto</h4>
-            <p>{{ pelicula.tagline }}</p>
+            <div *ngIf="pelicula.overview !== ''">
+                <h3>Sinopsis</h3>
+                <p class="text-justify">{{ pelicula.overview }}</p>
+            </div>
+            <div *ngIf="pelicula.tagline !== ''">
+                <h4>Extracto</h4>
+                <p>{{ pelicula.tagline }}</p>
+            </div>
             <h5>Puntuación <span class="badge badge-primary">{{ pelicula.vote_average }}</span></h5>
+            <button [routerLink]="['/'+pag, buscar]" routerLinkActive="router-link-active" type="button" class="btn btn-outline-danger mt-2">Volver</button>
         </div>
     </div>
 </div>
