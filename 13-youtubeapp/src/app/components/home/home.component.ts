@@ -25,4 +25,13 @@ export class HomeComponent implements OnInit {
     $('#modal').modal();
   }
 
+  cerrarModal() {
+    this.videoSeleccionado = null;
+    $('#modal').modal('hide');
+  }
+
+  cargarMas() {
+    this._youtubeService.getVideos().subscribe(videos => this.videos.push.apply(this.videos, videos));
+  }
+
 }
