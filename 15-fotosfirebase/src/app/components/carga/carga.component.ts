@@ -9,6 +9,7 @@ import { CargaImagenesService } from '../../services/carga-imagenes.service';
 })
 export class CargaComponent implements OnInit {
 
+  estaSobreDrop = false;
   archivos: FileItem[] = [];
 
   constructor( private _cis: CargaImagenesService) { }
