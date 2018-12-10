@@ -7,6 +7,12 @@ import { CargaComponent } from './components/carga/carga.component';
 
 import { APP_ROUTING } from './app.routes';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +21,10 @@ import { APP_ROUTING } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
     APP_ROUTING
   ],
   providers: [],
