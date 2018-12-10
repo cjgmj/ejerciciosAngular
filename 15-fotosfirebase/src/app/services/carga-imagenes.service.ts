@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FileItem } from '../models/file-item';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,11 @@ export class CargaImagenesService {
 
   constructor( private db: AngularFirestore ) { }
 
-  guardarImagen( imagen: {
+  cargarImagenesFirebase( imagenes: FileItem[] ) {
+    console.log(imagenes);
+  }
+
+  private guardarImagen( imagen: {
     nombre: string,
     url: string
   } ) {
