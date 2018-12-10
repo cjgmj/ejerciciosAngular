@@ -68,6 +68,7 @@ export class NgDropFilesDirective {
   private _archivoYaExiste( nombreArchivo: string ): boolean {
     for ( const archivo of this.archivos ) {
       if (archivo.nombreArchivo === nombreArchivo ) {
+        console.log('El archivo ' + nombreArchivo + ' ya está en la lista');
         return true;
       }
     }
