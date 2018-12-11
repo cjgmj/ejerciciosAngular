@@ -9,6 +9,7 @@ import { BarraComponent } from './components/barra/barra.component';
 import { DonaComponent } from './components/dona/dona.component';
 import { RadarComponent } from './components/radar/radar.component';
 import { PieComponent } from './components/pie/pie.component';
+import { PolarComponent } from './components/polar/polar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PieComponent } from './components/pie/pie.component';
     BarraComponent,
     DonaComponent,
     RadarComponent,
-    PieComponent
+    PieComponent,
+    PolarComponent
   ],
   imports: [
     BrowserModule,
