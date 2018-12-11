@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class DonaComponent {
-  // Doughnut
+  // doughnutChart
   public doughnutChartLabels: string[] = ['Series A', 'Series B', 'Series C'];
   public doughnutChartData: number[] = [350, 450, 100];
   public doughnutChartType = 'doughnut';
