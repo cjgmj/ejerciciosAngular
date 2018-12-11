@@ -6,12 +6,13 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class BarraComponent {
+    // barChart
     public barChartOptions: any = {
       scaleShowVerticalLines: false,
       responsive: true
     };
 
-    public barChartLabels = ['2012', '2013', '2014', '2015', '2016', '2017', '2018'];
+    public barChartLabels: string[] = ['2012', '2013', '2014', '2015', '2016', '2017', '2018'];
     public barChartType = 'bar';
     public barChartLegend = true;
 
