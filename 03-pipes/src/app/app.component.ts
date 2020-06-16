@@ -13,9 +13,11 @@ export class AppComponent {
 
   PI: number = Math.PI;
 
-  num = 0.234;
+  num: number = 0.234;
 
-  val = 1234.5;
+  val: number = 1234.5;
+
+  idioma: string = 'es';
 
   heroe = {
     nombre: 'Peter Parker',

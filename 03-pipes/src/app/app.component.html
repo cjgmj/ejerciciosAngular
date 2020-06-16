@@ -114,6 +114,16 @@
             </tr>
             <tr>
                 <td> {{ fecha }} </td>
+                <td> date:'MMMM - dd':'':'{{idioma}}'
+                    <br/>
+                    <button (click)="idioma = 'es'" class="mr1 btn btn-primary">Español</button>
+                    <button (click)="idioma = 'en'" class="mr1 btn btn-secondary">Inglés</button>
+                    <button (click)="idioma = 'fr'" class="btn btn-success">Francés</button>
+                </td>
+                <td> {{ fecha | date:'MMMM - dd':'':idioma }} </td>
+            </tr>
+            <tr>
+                <td> {{ fecha }} </td>
                 <td> date:'dd/MM/yyyy' </td>
                 <td> {{ fecha | date:'dd/MM/yyyy' }} </td>
             </tr>
