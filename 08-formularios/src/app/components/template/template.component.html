@@ -58,16 +58,19 @@
         <label class="col-2 col-form-label">Sexo</label>
         <div class="col-md-8">
             <!-- <div class="custom-control custom-radio">
-                <input [(ngModel)]="usuario.sexo" value="Hombre" type="radio" name="sexo" class="custom-control-input">
+                <input [(ngModel)]="usuario.sexo" value="Hombre" type="radio" name="sexo" class="custom-control-input" #sexo="ngModel" required>
                 <label class="custom-control-label">Hombre</label>
             </div>
             <div class="custom-control custom-radio">
-                <input [(ngModel)]="usuario.sexo" value="Mujer" type="radio" name="sexo" class="custom-control-input">
+                <input [(ngModel)]="usuario.sexo" value="Mujer" type="radio" name="sexo" class="custom-control-input" #sexo="ngModel" required>
                 <label class="custom-control-label">Mujer</label>
             </div> -->
             <div class="custom-control custom-radio" *ngFor="let s of sexos">
                 <input [(ngModel)]="usuario.sexo" [value]="s" type="radio" name="sexo" class="custom-control-input" [id]="s">
                 <label class="custom-control-label" [for]="s">{{ s }}</label>
+            </div>
+            <div class="" *ngIf="sexo.errors?.required">
+                Este campo es obligatorio
             </div>
         </div>
     </div>

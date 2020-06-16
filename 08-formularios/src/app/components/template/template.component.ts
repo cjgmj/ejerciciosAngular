@@ -41,8 +41,6 @@ export class TemplateComponent implements OnInit {
         nombre: 'Seleccione un país',
         codigo: ''
       })
-
-      console.log(paises);
     });
   }
 
