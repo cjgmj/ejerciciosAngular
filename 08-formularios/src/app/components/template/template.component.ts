@@ -18,14 +18,16 @@ export class TemplateComponent implements OnInit {
     acepta: false
   };
 
-  paises = [{
-    codigo: 'ESP',
-    nombre: 'España'
-  },
-  {
-    codigo: 'PT',
-    nombre: 'Portugal'
-  }];
+  paises: any[] = [];
+
+  // paises = [{
+  //   codigo: 'ESP',
+  //   nombre: 'España'
+  // },
+  // {
+  //   codigo: 'PT',
+  //   nombre: 'Portugal'
+  // }];
 
   sexos: string[] = ['Hombre', 'Mujer'];
 
@@ -33,6 +35,13 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.paisService.getPaises().subscribe( paises => {
+      this.paises = paises;
+
+      this.paises.unshift({
+        nombre: 'Seleccione un país',
+        codigo: ''
+      })
+
       console.log(paises);
     });
   }

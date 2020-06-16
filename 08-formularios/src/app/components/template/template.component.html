@@ -45,10 +45,12 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Pais</label>
         <div class="col-md-8">
-            <select name="pais" class="form-control" [(ngModel)]="usuario.pais">
-                <option value="">Seleccione un país</option>
+            <select name="pais" class="form-control" [(ngModel)]="usuario.pais" [disabled]="paises.length === 0" #pais="ngModel" required>
                 <option [value]="pais.codigo" *ngFor="let pais of paises">{{ pais.nombre }}</option>
             </select>
+            <div class="" *ngIf="pais.errors?.required">
+                Este campo es obligatorio
+            </div>
         </div>
     </div>
 
